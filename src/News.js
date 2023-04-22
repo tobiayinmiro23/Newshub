@@ -48,15 +48,15 @@ const News = () => {
         })
         .catch(err=>console.log(err))
     }
-    // useEffect(()=>{
-    //     handleSearch()
-    // },[])
-    // useEffect(()=>{
-    //     handleSearch()
-    // },[page])
-    // useEffect(()=>{
-    //     handleSearch()
-    // },[country])
+    useEffect(()=>{
+        handleSearch()
+    },[])
+    useEffect(()=>{
+        handleSearch()
+    },[page])
+    useEffect(()=>{
+        handleSearch()
+    },[country])
     const changeImg=(dt)=>{
         setcountryFlag(dt.target.currentSrc.split('com')[1])
     }
