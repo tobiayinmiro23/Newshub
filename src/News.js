@@ -6,13 +6,12 @@ import Footer from './Footer'
 import {contextWrapper} from './App'
 const News = () => {
     let data=useContext(contextWrapper)
-    const [country,setcountry,language, setlanguage]=data
+    const [country,setcountry,countryFlag, setcountryFlag]=data
     const [result, setresult] = useState([])
     const [noResult, setnoResult] = useState(false)
     const [searching, setsearching] = useState(true)
     const [pagination, setpagination] = useState(false)
     const [page, setpage] = useState('')
-    const [countryFlag, setcountryFlag] = useState('/image/nigeria.png')
     let menu=useRef()
     const Menu=()=>{
         menu.current.classList.toggle('hamburgermenu')
@@ -43,9 +42,6 @@ const News = () => {
         .catch(err=>console.log(err))
     }
 
-   // useEffect(()=>{
-      //   handleSearch()
-  //  },[])
     useEffect(()=>{
         setresult([])
         setpagination(false)
