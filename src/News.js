@@ -43,9 +43,9 @@ const News = () => {
         .catch(err=>console.log(err))
     }
 
-    useEffect(()=>{
-         handleSearch()
-    },[])
+   // useEffect(()=>{
+      //   handleSearch()
+  //  },[])
     useEffect(()=>{
         setresult([])
         setpagination(false)
