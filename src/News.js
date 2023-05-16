@@ -43,16 +43,16 @@ const News = () => {
         .catch(err=>console.log(err))
     }
 
-    // useEffect(()=>{
-    //     handleSearch()
-    // },[])
-    // useEffect(()=>{
-    //     setresult([])
-    //     setpagination(false)
-    //     handleSearch()
-    // },[country])
+    useEffect(()=>{
+         handleSearch()
+    },[])
+    useEffect(()=>{
+        setresult([])
+        setpagination(false)
+        handleSearch()
+    },[country])
     const changeImg=(dt)=>{
-        setcountryFlag(dt.target.currentSrc.split('3001')[1])
+        setcountryFlag(dt.target.currentSrc.split('com')[1])
     }
   return (
     <div className="News">
