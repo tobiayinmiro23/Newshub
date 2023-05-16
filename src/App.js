@@ -14,11 +14,12 @@ export let contextWrapper=createContext()
 function App() {
 
   const [country, setcountry] = useState('ng')
-  const [language, setlanguage] = useState('en')
+  const [countryFlag, setcountryFlag] = useState('/image/nigeria.png')
+
   return (
     <div className="App">
        <Router>
-          <contextWrapper.Provider  value={[country,setcountry,language, setlanguage]}>
+          <contextWrapper.Provider  value={[country,setcountry,countryFlag, setcountryFlag]}>
             <Routes>
               <Route exact path='/' element={<News/>}/>
               <Route exact path='/business' element={<Business/>}/>
