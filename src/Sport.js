@@ -8,15 +8,15 @@ const Sport = () => {
     const [noResult, setnoResult] = useState(false)
     const [pagination, setpagination] = useState(false)
     const [searching, setsearching] = useState(true)
+    const [loadMore, setloadMore] = useState(false)
     const [page, setpage] = useState('')
   
     const handleSearch=(e)=>{
         setnoResult(false)
         setsearching(true)
-        fetch(`https://newsdata.io/api/1/news?apikey=pub_210660b996e06920b7f144ea9530f2b020ef9&category=sports&country=${country}&page=${page}`)
+        fetch(`https://newsdata.io/api/1/news?apikey=pub_210660b996e06920b7f144ea9530f2b020ef9&category=sports&country=${country}`)
             .then(res=>res.json())
             .then(res=>{
-                console.log(res)
                 if(res?.status !== 'success' ){
                     alert(res?.message)
                 }
@@ -35,6 +35,30 @@ const Sport = () => {
             })
             .catch(err=>console.log(err))
         }
+
+        const LoadMore=(e)=>{
+            setnoResult(false)
+            setloadMore(true)
+            fetch(`https://newsdata.io/api/1/news?apikey=pub_210660b996e06920b7f144ea9530f2b020ef9&country=${country}&page=${page}`)
+                .then(res=>res.json())
+                .then(res=>{
+                    if(res?.status !== 'success' ){
+                        alert(res?.message)
+                    }
+                    if(res?.results?.length===0){
+                        setloadMore(false)
+                        setnoResult(true)
+                    }else{
+                        setloadMore(false)
+                        res?.results.map(item=>{
+                            setresult((a)=>[...a,item])
+                          })    
+                        setpage(res.nextPage)
+                        setpagination(true)
+                    }
+                })
+                .catch(err=>console.log(err))
+            }
 
         useEffect(()=>{
             handleSearch()
@@ -83,10 +107,10 @@ const Sport = () => {
                         pagination &&
                         <div className="pagination">
                             {
-                                searching ?
+                                loadMore ?
                                 <div className="round"></div> 
                                 :
-                                <button onClick={()=>{handleSearch()}}>Load more</button>
+                                <button onClick={()=>{LoadMore()}}>Load more</button>
                             }
                         </div>
                         
