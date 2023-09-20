@@ -1,4 +1,4 @@
-import React,{useState,useRef,useContext,useReducer ,useEffect} from 'react'
+import React,{useState,useRef,useContext,useEffect} from 'react'
 import { Link} from 'react-router-dom';
 
 import './news.css'
@@ -10,8 +10,9 @@ const News = () => {
     const [result, setresult] = useState([])
     const [noResult, setnoResult] = useState(false)
     const [searching, setsearching] = useState(true)
+    const [loadMore, setloadMore] = useState(false)
     const [pagination, setpagination] = useState(false)
-    const [page, setpage] = useState('')
+    const [page, setpage] = useState(0)
     let menu=useRef()
     const Menu=()=>{
         menu.current.classList.toggle('hamburgermenu')
@@ -19,7 +20,7 @@ const News = () => {
    const handleSearch=(e)=>{
     setnoResult(false)
     setsearching(true)
-    fetch(`https://newsdata.io/api/1/news?apikey=pub_210660b996e06920b7f144ea9530f2b020ef9&country=${country}&page=${page}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=${process.env.AUTHORIZATION_KEY}&country=${country}`)
         .then(res=>res.json())
         .then(res=>{
             console.log(res)
@@ -41,6 +42,31 @@ const News = () => {
         })
         .catch(err=>console.log(err))
     }
+
+    const LoadMore=(e)=>{
+        setnoResult(false)
+        setloadMore(true)
+        fetch(`https://newsdata.io/api/1/news?apikey=pub_210660b996e06920b7f144ea9530f2b020ef9&country=${country}&page=${page}`)
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res)
+                if(res?.status !== 'success' ){
+                    alert(res?.message)
+                }
+                if(res?.results?.length===0){
+                    setloadMore(false)
+                    setnoResult(true)
+                }else{
+                    setloadMore(false)
+                    res?.results.map(item=>{
+                        setresult((a)=>[...a,item])
+                      })    
+                    setpage(res.nextPage)
+                    setpagination(true)
+                }
+            })
+            .catch(err=>console.log(err))
+        }
 
     useEffect(()=>{
         setresult([])
@@ -160,10 +186,10 @@ const News = () => {
         pagination &&
         <div className="pagination">
             {
-                searching ?
+                loadMore ?
                 <div className="round"></div> 
                 :
-                <button onClick={()=>{handleSearch()}}>Load more</button>
+                <button onClick={()=>{LoadMore()}}>Load more</button>
             }
         </div>
         
