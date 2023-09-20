@@ -20,7 +20,7 @@ const News = () => {
    const handleSearch=(e)=>{
     setnoResult(false)
     setsearching(true)
-    fetch(`https://newsdata.io/api/1/news?apikey=${process.env.AUTHORIZATION_KEY}&country=${country}`)
+    fetch(`https://newsdata.io/api/1/news?apikey=pub_210660b996e06920b7f144ea9530f2b020ef9&country=${country}`)
         .then(res=>res.json())
         .then(res=>{
             console.log(res)
