@@ -122,7 +122,8 @@ nav li {
 }
 
 .LoadingAnimation div {
-    animation: Bounce 1.9s 22 both;
+/*     animation: Bounce 1.9s 22 both; */
+   animation: Bounce 1.9s infinite both;
 }
 
 .LoadingAnimation {
