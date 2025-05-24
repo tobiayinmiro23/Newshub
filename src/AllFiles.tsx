@@ -1,0 +1,11 @@
+export { default as Header } from './component/Header';
+export { default as SearchBar } from './component/SearchBar';
+export { default as Loader } from './component/Loader';
+export { default as Card } from './component/Card';
+export { default as LoadMoreBtn } from './component/LoadMoreBtn';
+export { default as Countries } from './component/Countries';
+export { default as Footer } from './component/Footer';
+export { default as Search } from './page/Search';
+export { default as Home } from './page/Home';
+export { default as Others } from './page/Others';
+export { default as Context } from './context/index';

@@ -1,0 +1,108 @@
+#root {
+  /* max-width: 1280px; */
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.LoadingAnimation div {
+  /*     animation: Bounce 1.9s 22 both; */
+  animation: Bounce 1.9s infinite both;
+}
+
+.LoadingAnimation {
+  padding-top: 5rem;
+  padding-bottom: 14rem;
+}
+
+.LoadingAnimation .one {
+  animation-delay: -0.3s;
+  width: 6rem;
+  border: 7px solid white;
+  border-top: 7px solid blue;
+  margin: auto;
+  border-radius: 50%;
+  height: 6rem;
+  padding-top: 0.35rem;
+}
+
+.LoadingAnimation .two {
+  animation-delay: -0.15s;
+  width: 4.5rem;
+  border: 7px solid white;
+  border-top: 7px solid blue;
+  margin: auto;
+  border-radius: 50%;
+  height: 4.5rem;
+  padding-top: 0.35rem;
+}
+
+.LoadingAnimation .three {
+  width: 3rem;
+  border: 7px solid white;
+  border-top: 7px solid blue;
+  margin: auto;
+  border-radius: 50%;
+  height: 3rem;
+}
+
+@keyframes Bounce {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.round {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid white;
+  border-top: 3px solid blue;
+  margin: auto;
+  border-radius: 50%;
+  animation: round 395ms infinite both;
+}
+
+@keyframes round {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(70deg);
+  }
+
+  40% {
+    transform: rotate(120deg);
+  }
+
+  60% {
+    transform: rotate(220deg);
+  }
+
+  80% {
+    transform: rotate(290deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hamburgermenu {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 100vh;
+  transition: 1s;
+}
