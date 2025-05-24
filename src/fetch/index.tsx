@@ -48,6 +48,7 @@ export function Category({ setloading, setdataReady, setresults, setnoResult, se
             setdataReady(true)
         }
     }).catch(err => {
+        console.log(err)
         seterror(true)
         setdataReady(false)
         setloading(false)
@@ -71,6 +72,7 @@ export function LoadMore({ setloadMore, results, country, setpage, page }: loadM
             if (setpage) setpage(res.data.nextPage)
         }
     }).catch(err => {
+        console.log(err)
         alert('an error occured')
         setloadMore(false)
     })
@@ -92,6 +94,7 @@ export function LoadMoreWithCategory({ setloadMore, results, country, setpage, p
             if (setpage) setpage(res.data.nextPage)
         }
     }).catch(err => {
+        console.log(err)
         alert('an error occured')
         setloadMore(false)
     })
@@ -116,6 +119,7 @@ export function Search({ setloading, setdataReady, setresults, setnoResult, sete
             setdataReady(true)
         }
     }).catch(err => {
+        console.log(err)
         seterror(true)
         setdataReady(false)
         setloading(false)
