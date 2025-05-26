@@ -9,7 +9,6 @@ const SearchBar = ({ allowAutoFocus, searchNews, search, setsearch }: searchBarI
         if (setsearch) setsearch(e.target.value)
     }
     const handleSearch = () => {
-        console.log(search)
         if (search === '') focusInput.current?.focus()
         else if (searchNews) searchNews()
     }
