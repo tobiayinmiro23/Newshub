@@ -19,7 +19,6 @@ function Others() {
     let allowAutoFocus: boolean = true
 
     function searchNews() {
-        setsearch('')
         appData?.setpage('')
         Search({ setloading, setdataReady, setnoResult, setresults, seterror, search, setpage })
     }
@@ -33,7 +32,7 @@ function Others() {
             {dataReady && <Card results={results} />}
             {noResult && <h1 className='text-[2rem] mt-[2rem] mb-[14rem] text-center'>Oops, we could not find any result</h1>}
             {error && <h1 className='text-[2rem] mt-[2rem] mb-[14rem] text-center'>An error occured, please try again later</h1>}
-            <div className='mt-[15rem]'><Footer /></div>
+            <div className='mt-[8rem]'><Footer /></div>
         </>
     )
 }
