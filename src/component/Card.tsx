@@ -14,10 +14,12 @@ const Card = ({ results }: cardI) => {
     const [loadMore, setloadMore] = useState<boolean>(false)
     const LoadMoreNews = () => {
         // to determine if the route is a category section like politics, science etc
-        let noCategory: boolean = window.location.pathname === '/'
+        let path: string = window.location.pathname
+        let noCategory: boolean = path === '/'
         // category name eg entertainment, sports etc
         let category: string = window.location.pathname.split('/')[1].toLowerCase()
         if (noCategory) LoadMore({ setloadMore, results, country, setpage, page })
+        else if (path === '/search') LoadMore({ setloadMore, results, country, setpage, page })
         else LoadMoreWithCategory({ setloadMore, category, results, country, setpage, page })
 
     }
