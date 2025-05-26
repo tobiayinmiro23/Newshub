@@ -13,7 +13,6 @@ export function Fetch({ setloading, setdataReady, setresults, setnoResult, seter
     };
     axios.request(options).then(res => {
         setloading(false)
-        seterror(false)
         if (res?.data.status !== 'success') seterror(true)
         else if (res?.data.results?.length === 0) setnoResult(true)
         else {
@@ -39,7 +38,6 @@ export function Category({ setloading, setdataReady, setresults, setnoResult, se
     };
     axios.request(options).then(res => {
         setloading(false)
-        seterror(false)
         if (res?.data.status !== 'success') seterror(true)
         else if (res?.data.results?.length === 0) setnoResult(true)
         else {
@@ -102,6 +100,7 @@ export function LoadMoreWithCategory({ setloadMore, results, country, setpage, p
 export function Search({ setloading, setdataReady, setresults, setnoResult, seterror, search, setpage }: searchI) {
     setloading(true)
     setdataReady(false)
+    setnoResult(false)
     setresults(null)
     seterror(false)
     const options = {
@@ -110,8 +109,7 @@ export function Search({ setloading, setdataReady, setresults, setnoResult, sete
     };
     axios.request(options).then(res => {
         setloading(false)
-        seterror(false)
-        if (res?.data.status !== 'success') alert('an error occured')
+        if (res?.data.status !== 'success') seterror(false)
         else if (res?.data.results?.length === 0) setnoResult(true)
         else {
             setresults(res?.data.results)
