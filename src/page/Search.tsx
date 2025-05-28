@@ -5,7 +5,7 @@ import { Search } from '../fetch'
 import { appContext } from '../context'
 import { resultI } from '../types'
 
-function Others() {
+function SearchPage() {
     const appData = useContext(appContext)
     const setpage = appData?.setpage
 
@@ -37,4 +37,4 @@ function Others() {
     )
 }
 
-export default Others
+export default SearchPage
