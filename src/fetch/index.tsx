@@ -17,7 +17,8 @@ export function Fetch({ setloading, setdataReady, setresults, setnoResult, seter
         else if (res?.data.results?.length === 0) setnoResult(true)
         else {
             setresults(res?.data.results)
-            if (setpage) setpage(res.data.nextPage)
+            if (res.data.nextPage === null && setpage) setpage("")
+            else if (setpage) setpage(res.data.nextPage)
             setdataReady(true)
         }
     }).catch(err => {
@@ -42,7 +43,8 @@ export function Category({ setloading, setdataReady, setresults, setnoResult, se
         else if (res?.data.results?.length === 0) setnoResult(true)
         else {
             setresults(res?.data.results)
-            if (setpage) setpage(res.data.nextPage)
+            if (res.data.nextPage === null && setpage) setpage("")
+            else if (setpage) setpage(res.data.nextPage)
             setdataReady(true)
         }
     }).catch(err => {
@@ -67,7 +69,8 @@ export function LoadMore({ setloadMore, results, country, setpage, page }: loadM
             res?.data.results.map((item: mappedresultI) => {
                 results?.push(item)
             })
-            if (setpage) setpage(res.data.nextPage)
+            if (res.data.nextPage === null && setpage) setpage("")
+            else if (setpage) setpage(res.data.nextPage)
         }
     }).catch(err => {
         console.log(err)
@@ -83,13 +86,15 @@ export function LoadMoreWithCategory({ setloadMore, results, country, setpage, p
     };
     axios.request(options).then(res => {
         setloadMore(false)
+        console.log(res)
         if (res?.data.status !== 'success') alert('an error occured')
         else if (res?.data.results?.length === 0) setloadMore(false)
         else {
             res?.data.results.map((item: mappedresultI) => {
                 results?.push(item)
             })
-            if (setpage) setpage(res.data.nextPage)
+            if (res.data.nextPage === null && setpage) setpage("")
+            else if (setpage) setpage(res.data.nextPage)
         }
     }).catch(err => {
         console.log(err)
@@ -109,11 +114,13 @@ export function Search({ setloading, setdataReady, setresults, setnoResult, sete
     };
     axios.request(options).then(res => {
         setloading(false)
+        console.log(res)
         if (res?.data.status !== 'success') seterror(false)
         else if (res?.data.results?.length === 0) setnoResult(true)
         else {
             setresults(res?.data.results)
-            if (setpage) setpage(res.data.nextPage)
+            if (res.data.nextPage === null && setpage) setpage("")
+            else if (setpage) setpage(res.data.nextPage)
             setdataReady(true)
         }
     }).catch(err => {
