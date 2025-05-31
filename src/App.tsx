@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Search, Others } from './AllFiles'
 import './App.css'
 
-
+const apiKey = import.meta.env.VITE_API_KEY;
 
 function App() {
 
-
+console.log(apiKey)
 
   return (
     <Router>
