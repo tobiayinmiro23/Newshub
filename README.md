@@ -7,6 +7,7 @@ A news website built with react, vite, tailwind, typescript, shadcn and newsdata
 - responsive UI
 - loader
 - toasts for message notification
+- error handling
 - view all news functionality
 - view individual news functionality
 - search news functionality
