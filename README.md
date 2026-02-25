@@ -13,7 +13,7 @@ A news website built with react, vite, tailwind, typescript, shadcn and newsdata
 - multiple news categorie (business, politics, entertainment etc)
 - multiple langauge functionality (china, france,south african, russian, japanese etc)
 - integration with news data.io API
-- load more functionality
+- load more news functionality (pagination)
 
 
 ## 📋 Prerequisites
@@ -52,13 +52,15 @@ A news website built with react, vite, tailwind, typescript, shadcn and newsdata
 ├── public/               
 │   └── image/          # Stores images accessible as static assets
 ├── src/                # Main source code
+│   ├── assets/        # static files
 │   ├── components/     # Reusable UI components
+│   ├── components/ui/     # Reusable shadcn UI components
 │   ├── context/      # For global state management
+│   ├── data/      # For textual data
 │   ├── fetch/        # contains all the fetch requests made to different endpoints
+│   ├── lib/        # shadcn helper for safely handling Tailwind CSS classes and preventing conflicts.
 │   ├── pages/          # Application screens
 │   ├── types/      # Contains all the types used
-│   ├── assets/        # static files
-│   ├── lib/        # shadcn helper for safely handling Tailwind CSS classes and preventing conflicts.
 │   ├── AllFiles.jsx    # Centralized imports and exports for easy access to all components and pages from a single file
 └── README.md           # Project documentation
 
