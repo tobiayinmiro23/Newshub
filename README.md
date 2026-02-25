@@ -48,21 +48,21 @@ A news website built with react, vite, tailwind, typescript, shadcn and newsdata
 
 ```
 
-├── dist/               # THe npm build
+├── dist/                  # The npm build
 ├── public/               
-│   └── image/          # Stores images accessible as static assets
-├── src/                # Main source code
-│   ├── assets/        # static files
-│   ├── components/     # Reusable UI components
-│   ├── components/ui/     # Reusable shadcn UI components
-│   ├── context/      # For global state management
-│   ├── data/      # For textual data
-│   ├── fetch/        # contains all the fetch requests made to different endpoints
-│   ├── lib/        # shadcn helper for safely handling Tailwind CSS classes and preventing conflicts.
-│   ├── pages/          # Application screens
-│   ├── types/      # Contains all the types used
-│   ├── AllFiles.jsx    # Centralized imports and exports for easy access to all components and pages from a single file
-└── README.md           # Project documentation
+│   └── image/             # Stores images accessible as static assets
+├── src/                   # Main source code
+│   ├── assets/              # static files
+│   ├── components/          # Reusable UI components
+│   ├── components/ui/       # Reusable shadcn UI components
+│   ├── context/             # For global state management
+│   ├── data/                # For textual data
+│   ├── fetch/               # contains all the fetch requests made to different endpoints
+│   ├── lib/                 # shadcn helper for safely handling Tailwind CSS classes and preventing conflicts.
+│   ├── pages/                # Application screens
+│   ├── types/               # Contains all the types used
+│   ├── AllFiles.jsx         # Centralized imports and exports for easy access to all components and pages from a single file
+└── README.md               # Project documentation
 
 ```
 
